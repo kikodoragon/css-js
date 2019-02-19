@@ -1,0 +1,54 @@
+<head>
+<link rel="stylesheet" type="text/css" href="st.css" media="screen" />
+</head>
+<body>
+<form>
+
+  <div class="multiselect">
+  <script>
+var expanded = false;
+
+function showCheckboxes() {
+  var checkboxes = document.getElementById("checkboxes");
+  if (!expanded) {
+    checkboxes.style.display = "block";
+    expanded = true;
+  } else {
+    checkboxes.style.display = "none";
+    expanded = false;
+  }
+}
+</script>
+    <div class="selectBox" onclick="showCheckboxes()">
+      <select>
+        <option id = "option">Select an option</option>
+      </select>
+      <div class="overSelect"></div>
+    </div>
+    <div id="checkboxes">
+    <label for="1" id = "label1">
+        <input type="checkbox" id="1" />ルーター</label>
+    <label for="2" id = "label2">
+        <input type="checkbox" id="2" />スイッチ</label>
+    <label for="3" id = "label3">
+        <input type="checkbox" id="3" />VDSL</label>
+	<label for="4" id = "label4">
+        <input type="checkbox" id="4" />宅内HUB</label>
+	<label for="5" id = "label5">
+        <input type="checkbox" id="5" />メディコン</label>
+	<label for="6" id = "label6">
+        <input type="checkbox" id="6" />ケーブル</label>
+	<label for="7" id = "label7">
+        <input type="checkbox" id="7" />埋込AP</label>
+	<label for="8" id = "label8">
+        <input type="checkbox" id="8" />ONU・回線・プロバイダ</label>
+	<label for="9" id = "label9">
+        <input type="checkbox" id="9" />他社回線接続</label>
+	<label for="10" id = "label10">
+        <input type="checkbox" id="10" />その他</label>
+    </div>
+  </div>
+  
+</form>
+
+</body>
