@@ -1,15 +1,16 @@
 <head>
 <link rel="stylesheet" type="text/css" href="st.css" media="screen" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
 <form>
 
   <div class="multiselect">
-  <script>
+<!--<script>
 var expanded = false;
 
 function showCheckboxes() {
-  var checkboxes = document.getElementById("checkboxes");
+  var checkboxes = document.getElementById("checkboxes"); onclick="showCheckboxes()"
   if (!expanded) {
     checkboxes.style.display = "block";
     expanded = true;
@@ -19,11 +20,45 @@ function showCheckboxes() {
   }
 }
 </script>
-    <div class="selectBox" onclick="showCheckboxes()">
+-->
+
+<script>
+$(document).mouseup(function(e) 
+                    {
+  var container = $("#box1");
+  var inside = $("#checkboxes");
+
+  console.log("Length: "+container.has(e.target).length+" isTarget: "+container.is(e.target)+" Inside show: "+inside.is(':visible'));
+  if(container.is(e.target)===true){
+    if (inside.is(':visible') ===true){
+      inside.hide();
+      console.log("Inside show, Container clicked!");
+    }
+    if (inside.is(':visible') ===false){
+      inside.show();
+    }
+  }
+  if(container.is(e.target)===false)
+  {
+    if(inside.is(':visible')===true){
+      if(inside.children().is(e.target)===false){
+        inside.hide();
+      }
+      if (inside.children().is(e.target)===true){
+        inside.show();
+      }
+    }
+    if(inside.is(':visible')===false){
+      inside.hide();
+    }
+  }
+});
+</script>
+    <div class="selectBox">
       <select>
         <option id = "option">Select an option</option>
       </select>
-      <div class="overSelect"></div>
+      <div class="overSelect" id="box1"></div>
     </div>
     <div id="checkboxes">
     <label for="1" id = "label1">
